@@ -1,0 +1,23 @@
+{
+    "name": "observatby/telecast-vault",
+    "description": "Компонент-база для описания и видео всех передач",
+    "version": "0.0.1",
+    "type": "library",
+    "homepage": "https://github.com/Observat/telecast-vault",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "Обловацкий Юрий",
+            "email": "jury@observat.by",
+            "homepage": "http://observat.by/"
+        }
+    ],
+    "require": {
+		"php": ">=7.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Observatby\\TelecastVault\\": "src/"
+        }
+    }
+}

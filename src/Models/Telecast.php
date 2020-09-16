@@ -35,4 +35,36 @@ class Telecast
         $this->leader = $leader;
         $this->episodes = $episodes;
     }
+
+    /**
+     * @return string
+     */
+    public function getTitle(): string
+    {
+        return $this->title;
+    }
+
+    /**
+     * @return string
+     */
+    public function getShortDescription(): string
+    {
+        return $this->shortDescription;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDescription(): string
+    {
+        return $this->description;
+    }
+
+    /**
+     * @return Leader
+     */
+    public function getLeader(): Leader
+    {
+        return $this->leader;
+    }
 }

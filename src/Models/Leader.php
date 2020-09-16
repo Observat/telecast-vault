@@ -25,4 +25,28 @@ class Leader
         $this->shortDescription = $shortDescription;
         $this->description = $description;
     }
+
+    /**
+     * @return string
+     */
+    public function getTitle(): string
+    {
+        return $this->title;
+    }
+
+    /**
+     * @return string
+     */
+    public function getBlockquote(): string
+    {
+        return $this->blockquote;
+    }
+
+    /**
+     * @return string
+     */
+    public function getShortDescription(): string
+    {
+        return $this->shortDescription;
+    }
 }

@@ -67,4 +67,13 @@ class Telecast
     {
         return $this->leader;
     }
+
+    /**
+     * @return EpisodeList
+     */
+    public function getEpisodes(): EpisodeList
+    {
+        return $this->episodes;
+    }
+
 }

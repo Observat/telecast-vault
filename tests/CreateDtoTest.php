@@ -40,4 +40,28 @@ final class CreateDtoTest extends TestCase
 
         $this->assertEquals($expectedDto, $actualDto);
     }
+
+    public function testTelecastWithEpisodesDtoFromModel()
+    {
+        $expectedDto = new \Observatby\TelecastVault\Dto\ViewTelecastWithEpisodesDTO();
+        $expectedDto->title = "Вместе";
+        $expectedDto->shortDescription = "Все самое главное за неделю.";
+        $expectedDto->description = "Все самое главное за неделю.";
+        $expectedDto->leaderTitle = "Екатерина Абрамова";
+        $expectedDto->leaderBlockquote = "Хобби - большой теннис, кулинария";
+        $expectedDto->leaderShortDescription = 'Зам. председателя МТРК «МИР», директор телеканала «МИР», ведущая программы <a href="http://mirtv.ru/broadcast/68/">«Вместе»</a>.';
+        $expectedDto->episodes = [
+            new \Observatby\TelecastVault\Dto\SmallViewEpisodeListDTO("«Вместе» от 30 августа 2020"),
+            new \Observatby\TelecastVault\Dto\SmallViewEpisodeListDTO("«Вместе» от 13 сентября 2020"),
+        ];
+
+        $model = $this->createTelecast_1();
+
+        $actualDto = \Observatby\TelecastVault\TransformToDto\TransformTelecastWithEpisodesToViewDto::transform($model);
+
+        $this->assertEquals($expectedDto, $actualDto);
+
+        $secondEpisodeTitle = ($actualDto->episodes)[1]->title;
+        $this->assertEquals("«Вместе» от 13 сентября 2020", $secondEpisodeTitle);
+    }
 }

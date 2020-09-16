@@ -6,23 +6,15 @@ namespace Observatby\TelecastVault\TransformToDto;
 
 use Observatby\TelecastVault\Dto\ViewTelecastDTO;
 use Observatby\TelecastVault\Models\Telecast;
+use Observatby\TelecastVault\TransformToDto\Traits\FillBaseOfTelecast;
 
 
 class TransformTelecastToViewDto
 {
+    use FillBaseOfTelecast;
+
     public static function transform(Telecast $model): ViewTelecastDTO
     {
-        $dto = new ViewTelecastDTO();
-
-        $dto->title = $model->getTitle();
-        $dto->shortDescription = $model->getShortDescription();
-        $dto->description = $model->getDescription();
-
-        $leader = $model->getLeader();
-        $dto->leaderTitle = $leader->getTitle();
-        $dto->leaderBlockquote = $leader->getBlockquote();
-        $dto->leaderShortDescription = $leader->getShortDescription();
-
-        return $dto;
+        return self::fillBaseOfTelecast($model, new ViewTelecastDTO());
     }
 }

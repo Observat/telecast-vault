@@ -4,7 +4,7 @@
 namespace Observatby\TelecastVault\Models;
 
 
-class EpisodeList
+class EpisodeList implements \IteratorAggregate
 {
     /** @var Episode[] $episodes */
     private array $episodes;
@@ -16,5 +16,10 @@ class EpisodeList
     public function __construct(array $episodes)
     {
         $this->episodes = $episodes;
+    }
+
+    public function getIterator()
+    {
+        return new \ArrayIterator($this->episodes);
     }
 }

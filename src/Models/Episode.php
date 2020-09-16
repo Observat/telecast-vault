@@ -36,4 +36,45 @@ class Episode
         $this->video = $video;
         $this->tagList = $tagList;
     }
+
+    /**
+     * @return string
+     */
+    public function getTitle(): string
+    {
+        return $this->title;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDescription(): string
+    {
+        return $this->description;
+    }
+
+    /**
+     * @return string
+     */
+    public function getText(): string
+    {
+        return $this->text;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAgeRestriction(): string
+    {
+        return $this->ageRestriction;
+    }
+
+    /**
+     * @return Video
+     */
+    public function getVideo(): Video
+    {
+        return $this->video;
+    }
+
 }

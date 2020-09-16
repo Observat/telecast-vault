@@ -18,4 +18,12 @@ class Video
     {
         $this->url = $url;
     }
+
+    /**
+     * @return string
+     */
+    public function getUrl(): string
+    {
+        return $this->url;
+    }
 }

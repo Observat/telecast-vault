@@ -6,11 +6,12 @@ namespace Observatby\TelecastVault\Models;
 
 class TelecastList
 {
+    /** @var Telecast[] $telecasts */
     private array $telecasts;
 
     /**
      * TelecastList constructor.
-     * @param array $telecasts
+     * @param Telecast[] $telecasts
      */
     public function __construct(array $telecasts)
     {

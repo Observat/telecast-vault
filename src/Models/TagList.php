@@ -6,11 +6,12 @@ namespace Observatby\TelecastVault\Models;
 
 class TagList
 {
+    /** @var Tag[] $tags */
     private array $tags;
 
     /**
      * TagList constructor.
-     * @param array $tags
+     * @param Tag[] $tags
      */
     public function __construct(array $tags)
     {

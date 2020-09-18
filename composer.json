@@ -1,7 +1,7 @@
 {
     "name": "observatby/telecast-vault",
     "description": "Компонент-база для описания и видео всех передач",
-    "version": "0.0.1",
+    "version": "0.0.3",
     "type": "library",
     "homepage": "https://github.com/Observat/telecast-vault",
     "license": "Apache-2.0",

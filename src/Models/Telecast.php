@@ -10,7 +10,7 @@ class Telecast
     private string $shortDescription;
     private string $description;
     private Leader $leader;
-    private EpisodeList $episodes;
+    private EpisodeListInterface $episodes;
     // TODO private int $year;
     // TODO private string $time; //Время выхода в эфир
     // TODO Шапка для страницы на сайте (изображение)
@@ -25,9 +25,9 @@ class Telecast
      * @param string $shortDescription
      * @param string $description
      * @param Leader $leader
-     * @param EpisodeList $episodes
+     * @param EpisodeListInrerface $episodes
      */
-    public function __construct(string $title, string $shortDescription, string $description, Leader $leader, EpisodeList $episodes)
+    public function __construct(string $title, string $shortDescription, string $description, Leader $leader, EpisodeListInrerface $episodes)
     {
         $this->title = $title;
         $this->shortDescription = $shortDescription;
@@ -69,9 +69,9 @@ class Telecast
     }
 
     /**
-     * @return EpisodeList
+     * @return EpisodeListInterface
      */
-    public function getEpisodes(): EpisodeList
+    public function getEpisodes(): EpisodeListInterface
     {
         return $this->episodes;
     }

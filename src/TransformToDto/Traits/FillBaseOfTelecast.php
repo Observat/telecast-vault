@@ -14,7 +14,7 @@ trait FillBaseOfTelecast
 
         $leader = $model->getLeader();
         $dto->leaderTitle = $leader->getTitle();
-        $dto->leaderBlockquote = $leader->getBlockquote();
+        $dto->leaderQuote = $leader->getQuote();
         $dto->leaderShortDescription = $leader->getShortDescription();
 
         return $dto;

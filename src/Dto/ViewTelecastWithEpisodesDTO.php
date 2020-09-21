@@ -9,7 +9,7 @@ class ViewTelecastWithEpisodesDTO
     public string $shortDescription;
     public string $description;
     public string $leaderTitle;
-    public string $leaderBlockquote;
+    public string $leaderQuote;
     public string $leaderShortDescription;
     /** @var SmallViewEpisodeListDTO[] $episodes */
     public array $episodes;

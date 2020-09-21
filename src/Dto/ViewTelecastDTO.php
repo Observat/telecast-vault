@@ -9,6 +9,6 @@ class ViewTelecastDTO
     public string $shortDescription;
     public string $description;
     public string $leaderTitle;
-    public string $leaderBlockquote;
+    public string $leaderQuote;
     public string $leaderShortDescription;
 }

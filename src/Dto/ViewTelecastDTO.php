@@ -8,7 +8,6 @@ class ViewTelecastDTO
     public string $title;
     public string $shortDescription;
     public string $description;
-    public string $leaderTitle;
-    public string $leaderQuote;
-    public string $leaderShortDescription;
+    /** @var SmallViewLeaderListDTO[] $leaders */
+    public array $leaders;
 }

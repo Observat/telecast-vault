@@ -1,5 +1,13 @@
 <?php declare(strict_types=1);
 
+use Observatby\TelecastVault\Dto\SmallViewEpisodeListDTO;
+use Observatby\TelecastVault\Dto\SmallViewLeaderListDTO;
+use Observatby\TelecastVault\Dto\ViewEpisodeDTO;
+use Observatby\TelecastVault\Dto\ViewTelecastDTO;
+use Observatby\TelecastVault\Dto\ViewTelecastWithEpisodesDTO;
+use Observatby\TelecastVault\TransformToDto\TransformEpisodeToViewDto;
+use Observatby\TelecastVault\TransformToDto\TransformTelecastToViewDto;
+use Observatby\TelecastVault\TransformToDto\TransformTelecastWithEpisodesToViewDto;
 use PHPUnit\Framework\TestCase;
 
 require_once __DIR__ . '/CreateModelsTrait.php';
@@ -10,7 +18,7 @@ final class CreateDtoTest extends TestCase
 
     public function testEpisodeDtoFromModel()
     {
-        $expectedDto = new \Observatby\TelecastVault\Dto\ViewEpisodeDTO();
+        $expectedDto = new ViewEpisodeDTO();
         $expectedDto->title = "«Вместе» от 30 августа 2020";
         $expectedDto->description = "";
         $expectedDto->text = $this->createEpisodeText_1_1();
@@ -19,45 +27,49 @@ final class CreateDtoTest extends TestCase
 
         $model = $this->createEpisode_1_1();
 
-        $actualDto = \Observatby\TelecastVault\TransformToDto\TransformEpisodeToViewDto::transform($model);
+        $actualDto = TransformEpisodeToViewDto::transform($model);
 
         $this->assertEquals($expectedDto, $actualDto);
     }
 
     public function testTelecastDtoFromModel()
     {
-        $expectedDto = new \Observatby\TelecastVault\Dto\ViewTelecastDTO();
+        $expectedDto = new ViewTelecastDTO();
         $expectedDto->title = "Вместе";
         $expectedDto->shortDescription = "Все самое главное за неделю.";
         $expectedDto->description = "Все самое главное за неделю.";
-        $expectedDto->leaderTitle = "Екатерина Абрамова";
-        $expectedDto->leaderQuote = "Хобби - большой теннис, кулинария";
-        $expectedDto->leaderShortDescription = 'Зам. председателя МТРК «МИР», директор телеканала «МИР», ведущая программы <a href="http://mirtv.ru/broadcast/68/">«Вместе»</a>.';
+        $expectedLeaderDto = new SmallViewLeaderListDTO();
+        $expectedLeaderDto->title = "Екатерина Абрамова";
+        $expectedLeaderDto->quote = "Хобби - большой теннис, кулинария";
+        $expectedLeaderDto->description = 'Зам. председателя МТРК «МИР», директор телеканала «МИР», ведущая программы <a href="http://mirtv.ru/broadcast/68/">«Вместе»</a>.';
+        $expectedDto->leaders = [ $expectedLeaderDto ];
 
         $model = $this->createTelecast_1();
 
-        $actualDto = \Observatby\TelecastVault\TransformToDto\TransformTelecastToViewDto::transform($model);
+        $actualDto = TransformTelecastToViewDto::transform($model);
 
         $this->assertEquals($expectedDto, $actualDto);
     }
 
     public function testTelecastWithEpisodesDtoFromModel()
     {
-        $expectedDto = new \Observatby\TelecastVault\Dto\ViewTelecastWithEpisodesDTO();
+        $expectedDto = new ViewTelecastWithEpisodesDTO();
         $expectedDto->title = "Вместе";
         $expectedDto->shortDescription = "Все самое главное за неделю.";
         $expectedDto->description = "Все самое главное за неделю.";
-        $expectedDto->leaderTitle = "Екатерина Абрамова";
-        $expectedDto->leaderQuote = "Хобби - большой теннис, кулинария";
-        $expectedDto->leaderShortDescription = 'Зам. председателя МТРК «МИР», директор телеканала «МИР», ведущая программы <a href="http://mirtv.ru/broadcast/68/">«Вместе»</a>.';
+        $expectedLeaderDto = new SmallViewLeaderListDTO();
+        $expectedLeaderDto->title = "Екатерина Абрамова";
+        $expectedLeaderDto->quote = "Хобби - большой теннис, кулинария";
+        $expectedLeaderDto->description = 'Зам. председателя МТРК «МИР», директор телеканала «МИР», ведущая программы <a href="http://mirtv.ru/broadcast/68/">«Вместе»</a>.';
+        $expectedDto->leaders = [ $expectedLeaderDto ];
         $expectedDto->episodes = [
-            new \Observatby\TelecastVault\Dto\SmallViewEpisodeListDTO("«Вместе» от 30 августа 2020"),
-            new \Observatby\TelecastVault\Dto\SmallViewEpisodeListDTO("«Вместе» от 13 сентября 2020"),
+            new SmallViewEpisodeListDTO("«Вместе» от 30 августа 2020"),
+            new SmallViewEpisodeListDTO("«Вместе» от 13 сентября 2020"),
         ];
 
         $model = $this->createTelecast_1();
 
-        $actualDto = \Observatby\TelecastVault\TransformToDto\TransformTelecastWithEpisodesToViewDto::transform($model);
+        $actualDto = TransformTelecastWithEpisodesToViewDto::transform($model);
 
         $this->assertEquals($expectedDto, $actualDto);
 

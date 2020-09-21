@@ -1,24 +1,32 @@
 <?php
 
+use Observatby\TelecastVault\Models\Episode;
+use Observatby\TelecastVault\Models\EpisodeList;
+use Observatby\TelecastVault\Models\Leader;
+use Observatby\TelecastVault\Models\LeaderList;
+use Observatby\TelecastVault\Models\Telecast;
+
 trait CreateModelsTrait
 {
-    private function createTelecast_1()
+    private function createTelecast_1(): Telecast
     {
-        return new \Observatby\TelecastVault\Models\Telecast(
+        return new Telecast(
             "Вместе",
             "Все самое главное за неделю.",
             "Все самое главное за неделю.",
-            $this->createLeader_1(),
-            new \Observatby\TelecastVault\Models\EpisodeList([
+            new LeaderList([
+                $this->createLeader_1_1(),
+            ]),
+            new EpisodeList([
                 $this->createEpisode_1_1(),
                 $this->createEpisode_1_2(),
             ])
         );
     }
 
-    private function createLeader_1()
+    private function createLeader_1_1(): Leader
     {
-        return new \Observatby\TelecastVault\Models\Leader(
+        return new Leader(
             "Екатерина Абрамова",
             "Хобби - большой теннис, кулинария",
             'Зам. председателя МТРК «МИР», директор телеканала «МИР», ведущая программы <a href="http://mirtv.ru/broadcast/68/">«Вместе»</a>.',
@@ -31,9 +39,9 @@ trait CreateModelsTrait
         );
     }
 
-    private function createEpisode_1_1()
+    private function createEpisode_1_1(): Episode
     {
-        return new \Observatby\TelecastVault\Models\Episode(
+        return new Episode(
             "«Вместе» от 30 августа 2020",
             "",
             $this->createEpisodeText_1_1(),
@@ -50,7 +58,7 @@ trait CreateModelsTrait
 
     private function createEpisode_1_2()
     {
-        return new \Observatby\TelecastVault\Models\Episode(
+        return new Episode(
             "«Вместе» от 13 сентября 2020",
             "",
             $this->createEpisodeText_1_2(),

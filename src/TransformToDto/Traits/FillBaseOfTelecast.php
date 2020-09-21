@@ -4,6 +4,8 @@
 namespace Observatby\TelecastVault\TransformToDto\Traits;
 
 
+use Observatby\TelecastVault\Dto\SmallViewLeaderListDTO;
+
 trait FillBaseOfTelecast
 {
     private static function fillBaseOfTelecast($model, $dto)
@@ -12,10 +14,16 @@ trait FillBaseOfTelecast
         $dto->shortDescription = $model->getShortDescription();
         $dto->description = $model->getDescription();
 
-        $leader = $model->getLeader();
-        $dto->leaderTitle = $leader->getTitle();
-        $dto->leaderQuote = $leader->getQuote();
-        $dto->leaderShortDescription = $leader->getShortDescription();
+        $leaders = $model->getLeaders();
+        $leadersDto = [];
+        foreach ($leaders as $leader) {
+            $leaderDto = new SmallViewLeaderListDTO();
+            $leaderDto->title = $leader->getTitle();
+            $leaderDto->quote = $leader->getQuote();
+            $leaderDto->description = $leader->getShortDescription();
+            $leadersDto[] = $leaderDto;
+        }
+        $dto->leaders = $leadersDto;
 
         return $dto;
     }

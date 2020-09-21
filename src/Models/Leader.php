@@ -8,22 +8,22 @@ class Leader
 {
     private string $title;
     private string $quote;
-    private string $shortDescription;
     private string $description;
+    private string $text;
 
     /**
      * Leader constructor.
      * @param string $title
      * @param string $quote
-     * @param string $shortDescription
      * @param string $description
+     * @param string $text
      */
-    public function __construct(string $title, string $quote, string $shortDescription, string $description)
+    public function __construct(string $title, string $quote, string $description, string $text)
     {
         $this->title = $title;
         $this->quote = $quote;
-        $this->shortDescription = $shortDescription;
         $this->description = $description;
+        $this->text = $text;
     }
 
     /**
@@ -45,8 +45,8 @@ class Leader
     /**
      * @return string
      */
-    public function getShortDescription(): string
+    public function getDescription(): string
     {
-        return $this->shortDescription;
+        return $this->description;
     }
 }

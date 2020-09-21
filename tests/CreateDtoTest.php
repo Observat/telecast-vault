@@ -36,8 +36,8 @@ final class CreateDtoTest extends TestCase
     {
         $expectedDto = new ViewTelecastDTO();
         $expectedDto->title = "Вместе";
-        $expectedDto->shortDescription = "Все самое главное за неделю.";
         $expectedDto->description = "Все самое главное за неделю.";
+        $expectedDto->text = "Все самое главное за неделю.";
         $expectedLeaderDto = new SmallViewLeaderListDTO();
         $expectedLeaderDto->title = "Екатерина Абрамова";
         $expectedLeaderDto->quote = "Хобби - большой теннис, кулинария";
@@ -55,8 +55,8 @@ final class CreateDtoTest extends TestCase
     {
         $expectedDto = new ViewTelecastWithEpisodesDTO();
         $expectedDto->title = "Вместе";
-        $expectedDto->shortDescription = "Все самое главное за неделю.";
         $expectedDto->description = "Все самое главное за неделю.";
+        $expectedDto->text = "Все самое главное за неделю.";
         $expectedLeaderDto = new SmallViewLeaderListDTO();
         $expectedLeaderDto->title = "Екатерина Абрамова";
         $expectedLeaderDto->quote = "Хобби - большой теннис, кулинария";

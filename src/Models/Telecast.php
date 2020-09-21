@@ -7,8 +7,8 @@ namespace Observatby\TelecastVault\Models;
 class Telecast
 {
     private string $title;
-    private string $shortDescription;
     private string $description;
+    private string $text;
     private LeaderListInterface $leaders;
     private EpisodeListInterface $episodes;
     // TODO private int $year;
@@ -22,16 +22,16 @@ class Telecast
     /**
      * Telecast constructor.
      * @param string $title
-     * @param string $shortDescription
      * @param string $description
+     * @param string $text
      * @param LeaderListInterface $leaders
      * @param EpisodeListInterface $episodes
      */
-    public function __construct(string $title, string $shortDescription, string $description, LeaderListInterface $leaders, EpisodeListInterface $episodes)
+    public function __construct(string $title, string $description, string $text, LeaderListInterface $leaders, EpisodeListInterface $episodes)
     {
         $this->title = $title;
-        $this->shortDescription = $shortDescription;
         $this->description = $description;
+        $this->text = $text;
         $this->leaders = $leaders;
         $this->episodes = $episodes;
     }
@@ -47,17 +47,17 @@ class Telecast
     /**
      * @return string
      */
-    public function getShortDescription(): string
+    public function getDescription(): string
     {
-        return $this->shortDescription;
+        return $this->description;
     }
 
     /**
      * @return string
      */
-    public function getDescription(): string
+    public function getText(): string
     {
-        return $this->description;
+        return $this->text;
     }
 
     /**

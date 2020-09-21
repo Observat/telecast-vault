@@ -11,8 +11,8 @@ trait FillBaseOfTelecast
     private static function fillBaseOfTelecast($model, $dto)
     {
         $dto->title = $model->getTitle();
-        $dto->shortDescription = $model->getShortDescription();
         $dto->description = $model->getDescription();
+        $dto->text = $model->getText();
 
         $leaders = $model->getLeaders();
         $leadersDto = [];
@@ -20,7 +20,7 @@ trait FillBaseOfTelecast
             $leaderDto = new SmallViewLeaderListDTO();
             $leaderDto->title = $leader->getTitle();
             $leaderDto->quote = $leader->getQuote();
-            $leaderDto->description = $leader->getShortDescription();
+            $leaderDto->description = $leader->getDescription();
             $leadersDto[] = $leaderDto;
         }
         $dto->leaders = $leadersDto;

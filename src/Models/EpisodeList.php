@@ -5,9 +5,8 @@ namespace Observatby\TelecastVault\Models;
 
 
 use ArrayIterator;
-use IteratorAggregate;
 
-class EpisodeList implements IteratorAggregate, EpisodeListInterface
+class EpisodeList implements EpisodeListInterface
 {
     /** @var Episode[] $episodes */
     private array $episodes;

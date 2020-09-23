@@ -4,7 +4,8 @@
 namespace Observatby\TelecastVault\Models;
 
 
-interface ListInterface
+use IteratorAggregate;
+
+interface ListInterface extends IteratorAggregate
 {
-    public function getIterator();
 }

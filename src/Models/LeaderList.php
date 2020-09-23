@@ -5,9 +5,8 @@ namespace Observatby\TelecastVault\Models;
 
 
 use ArrayIterator;
-use IteratorAggregate;
 
-class LeaderList implements IteratorAggregate, LeaderListInterface
+class LeaderList implements LeaderListInterface
 {
     /** @var Leader[] $leaders */
     private array $leaders;
